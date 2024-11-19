@@ -1,16 +1,5 @@
-<<<<<<< HEAD
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
-=======
-<template>
-  <div id="app">
+  <div id="app" style="margin: none; padding: none;">
     <HeaderSection />
     <BannerSection />
     <GuideSection />
@@ -33,4 +22,3 @@ export default {
   },
 };
 </script>
->>>>>>> youngjae3
