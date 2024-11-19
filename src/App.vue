@@ -1,33 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import Navbar from '@/components/common/Navbar.vue';
+import Footer from '@/components/common/PageFooter.vue';
 </script>
 
 <template>
-  
-<!--   
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <HelloWorld msg="배영재 리포지토리" />
-=======
-      <HelloWorld msg="sun did it!" />
->>>>>>> sunsun
-=======
-      <HelloWorld msg="김도훈 리포지토리" />
->>>>>>> hun
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-    <div class="main-container">
-      <RouterView />
+  <div class="main-container">
+    <Navbar /> <!-- 네비게이션 바 -->
+    <!-- <router-view /> --> <!-- 페이지 이동이 표시될 곳 -->
+    <RouterView />
+    <Footer /> <!-- 푸터 컴포넌트 -->
   </div>
 </template>
 
@@ -58,7 +41,6 @@ export default {
       grid-template-columns: auto;
   }
 }
-/* 
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -119,18 +101,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-} */
-</style>
-=======
-<template>
-  <div id="app">
-    <router-view />
-  </div>
-</template>
-
-<script>
-export default {
-  name: "App",
-};
-</script>
->>>>>>> youngjae3
+}
+</style> -->
