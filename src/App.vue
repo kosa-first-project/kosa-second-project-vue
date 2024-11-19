@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
@@ -102,3 +103,16 @@ nav a:first-of-type {
   }
 } */
 </style>
+=======
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template>
+
+<script>
+export default {
+  name: "App",
+};
+</script>
+>>>>>>> youngjae3
