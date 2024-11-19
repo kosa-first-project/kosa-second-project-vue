@@ -31,7 +31,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // 백엔드 서버 주소
+        target: 'http://localhost:8888', // 백엔드 서버 주소
         changeOrigin: true, // 백엔드 서버의 도메인을 변경
         rewrite: (path) => path.replace(/^\/api/, ''), // '/api'를 제거
       },
