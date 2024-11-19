@@ -1,14 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-<<<<<<< HEAD
 import GuideCard from '../components/GuideCard.vue'
 import MypageGuide from '../components/MypageGuide.vue'
 import GuideForm from '../components/GuideForm.vue'
 import GuideDetail from '../components/GuideDetail.vue'
-=======
 import Login from '../pages/Login.vue';
 
->>>>>>> hun
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
