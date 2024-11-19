@@ -4,7 +4,6 @@
 
     <!-- 검색 바 -->
     <div class="search-bar">
-      <!-- 지역 선택 필터 -->
       <select v-model="selectedCity">
         <option value="all">모든 지역</option>
         <option value="서울">서울</option>
@@ -22,11 +21,7 @@
         <option value="경상도">경상도</option>
         <option value="제주도">제주도</option>
       </select>
-
-      <!-- 텍스트 검색 필터 -->
       <input type="text" v-model="searchTerm" placeholder="제목 및 상세내역 검색" />
-
-      <!-- 검색 버튼 -->
       <button class="pagination-button" @click="performSearch">검색</button>
     </div>
 
@@ -104,7 +99,6 @@ const fetchGuideData = async () => {
         size: itemsPerPage.value,
       },
     });
-    console.log("API 응답:", response.data);
     guideData.value = response.data.list || [];
     totalItems.value = response.data.totalElements || 0;
     totalPages.value = response.data.totalPages || 0;
@@ -124,7 +118,6 @@ const performSearch = async () => {
         city: selectedCity.value,
       },
     });
-    console.log("검색 응답:", response.data);
     guideData.value = response.data.list || [];
     totalItems.value = response.data.totalElements || 0;
     totalPages.value = response.data.totalPages || 0;
@@ -174,7 +167,6 @@ fetchGuideData();
 </script>
 
 <style scoped>
-/* 스타일 변경 */
 body {
   font-family: "Arial", sans-serif;
   background-color: #f3f6fa;
@@ -210,14 +202,25 @@ select {
 }
 
 #cardContainerUnique {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 카드 최소 크기 300px, 최대 크기 비율 */
+  gap: 20px; /* 카드 간격 */
+  padding: 20px;
+}
+
+@media (max-width: 1024px) {
+  #cardContainerUnique {
+    grid-template-columns: repeat(2, 1fr); /* 중간 화면에서 2열 */
+  }
+}
+
+@media (max-width: 600px) {
+  #cardContainerUnique {
+    grid-template-columns: 1fr; /* 작은 화면에서 1열 */
+  }
 }
 
 .card {
-  width: 300px;
   background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
