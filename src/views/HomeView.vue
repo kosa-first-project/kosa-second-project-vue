@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="margin: none; padding: none;">
     <HeaderSection />
     <BannerSection />
     <GuideSection />

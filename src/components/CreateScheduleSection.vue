@@ -75,7 +75,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import axios from 'axios';
+import axios from "axios";
 
 const searchQuery = ref("");
 const markers = ref([]);
@@ -85,52 +85,66 @@ let ps = null;
 // Initialize Kakao Map
 const initMap = () => {
     const mapContainer = document.getElementById("map");
+    if (!mapContainer) {
+        console.error("Map container not found.");
+        return;
+    }
+
     const mapOption = { 
         center: new kakao.maps.LatLng(36.98818056, 127.9281444), // Default center coordinates
         level: 12, // Zoom level
     };
     map = new kakao.maps.Map(mapContainer, mapOption);
     ps = new kakao.maps.services.Places();
+
+    if (!ps) {
+        console.error("Places services failed to initialize.");
+    }
 };
 
 // Search keyword
 const searchKeyword = () => {
-if (!searchQuery.value) {
-    alert("검색어를 입력하세요.");
-    return;
-}
-
-ps.keywordSearch(searchQuery.value, (data, status) => {
-    if (status === kakao.maps.services.Status.OK) {
-    markers.value = []; // Clear existing markers
-    const bounds = new kakao.maps.LatLngBounds();
-
-    data.forEach((place) => {
-        const position = new kakao.maps.LatLng(place.y, place.x);
-        const marker = new kakao.maps.Marker({
-            position,map,
-        });
-        markers.value.push(marker);
-        bounds.extend(position);
-
-        kakao.maps.event.addListener(marker, "click", () => {
-            document.getElementById("destination").value = place.place_name;
-        });
-    });
-
-        map.setBounds(bounds);
-    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-        alert("검색 결과가 없습니다.");
-    } else {
-        alert("검색 중 오류가 발생했습니다.");
+    if (!ps) {
+        alert("지도 서비스가 초기화되지 않았습니다. 페이지를 새로고침 해주세요.");
+        return;
     }
-});
+
+    if (!searchQuery.value) {
+        alert("검색어를 입력하세요.");
+        return;
+    }
+
+    ps.keywordSearch(searchQuery.value, (data, status) => {
+        if (status === kakao.maps.services.Status.OK) {
+            markers.value = []; // Clear existing markers
+            const bounds = new kakao.maps.LatLngBounds();
+
+            data.forEach((place) => {
+                const position = new kakao.maps.LatLng(place.y, place.x);
+                const marker = new kakao.maps.Marker({
+                    position, map,
+                });
+                markers.value.push(marker);
+                bounds.extend(position);
+
+                kakao.maps.event.addListener(marker, "click", () => {
+                    document.getElementById("destination").value = place.place_name;
+                });
+            });
+
+            map.setBounds(bounds);
+        } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+            alert("검색 결과가 없습니다.");
+        } else {
+            alert("검색 중 오류가 발생했습니다.");
+        }
+    });
 };
 
 const createSchedule = async () => {
     try {
         const formData = {
-            user_id: "123", // Replace with actual user ID logic
+            user_id: "123", // Replace with actual user ID
             destination: document.getElementById("destination").value,
             travel_start_date: document.getElementById("travel_start_date").value,
             travel_start_time: document.getElementById("travel_start_time").value,
@@ -143,7 +157,6 @@ const createSchedule = async () => {
         const response = await axios.post("http://localhost:8889/schedule/create", formData, {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
         });
-
         alert("일정이 성공적으로 생성되었습니다.");
         console.log("Created schedule:", response.data);
     } catch (error) {
@@ -152,10 +165,10 @@ const createSchedule = async () => {
     }
 };
 
-// Initialize the map on component mount
-    onMounted(() => {
-        initMap();
-    });
+onMounted(() => {
+    initMap();
+});
+
 </script>
 
 <style scoped>

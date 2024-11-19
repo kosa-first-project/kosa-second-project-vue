@@ -13,13 +13,6 @@
     "bootstrap": "^5.3.3",
     "pinia": "^2.2.6",
     "vue": "^3.5.12",
-<<<<<<< HEAD
-    "vue-router": "^4.4.5"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.1.4",
-    "vite": "^5.4.10",
-=======
     "vue-router": "^4.0.13",
     "vue3-kakao-maps": "^2.3.10"
   },
@@ -28,7 +21,6 @@
     "node-sass": "^9.0.0",
     "sass-loader": "^16.0.3",
     "vite": "^5.4.11",
->>>>>>> youngjae3
     "vite-plugin-vue-devtools": "^7.5.4"
   }
 }

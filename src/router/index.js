@@ -1,21 +1,19 @@
-<<<<<<< HEAD
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-<<<<<<< HEAD
 import GuideCard from '../components/GuideCard.vue'
 import MypageGuide from '../components/MypageGuide.vue'
 import GuideForm from '../components/GuideForm.vue'
 import GuideDetail from '../components/GuideDetail.vue'
-=======
 import Login from '../pages/Login.vue';
+import ScheduleView from "../views/ScheduleView.vue"; 
+import CreateScheduleView from "../views/CreateScheduleView.vue";
 
->>>>>>> hun
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: HomeView,
     },
@@ -51,38 +49,17 @@ const router = createRouter({
       component: GuideDetail,
       props: true, // 경로 매개변수를 props로 전달
     },
+    {
+      path: "/schedule",
+      name: "schedule",
+      component: ScheduleView, // Renders HeaderSection, ScheduleSection, FooterSection
+    },
+    {
+      path: "/create",
+      name: "create",
+      component: CreateScheduleView, // Renders HeaderSection, CreateScheduleSection, FooterSection
+    },
   ],
 })
 
 export default router
-=======
-import { createRouter, createWebHistory } from "vue-router";
-import ScheduleView from "../views/ScheduleView.vue"; 
-import CreateScheduleView from "../views/CreateScheduleView.vue";
-import HomeView from "../views/HomeView.vue";
-
-const routes = [
-  {
-    path:"/home",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/schedule",
-    name: "schedule",
-    component: ScheduleView, // Renders HeaderSection, ScheduleSection, FooterSection
-  },
-  {
-    path: "/create",
-    name: "create",
-    component: CreateScheduleView, // Renders HeaderSection, CreateScheduleSection, FooterSection
-  },
-];
-
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-});
-
-export default router;
->>>>>>> youngjae3

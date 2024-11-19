@@ -16,8 +16,3 @@ export default defineConfig({
     },
   },
 })
-<<<<<<< HEAD
-=======
-
-
->>>>>>> youngjae3
