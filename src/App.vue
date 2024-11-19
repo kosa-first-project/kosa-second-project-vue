@@ -11,10 +11,14 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <HelloWorld msg="배영재 리포지토리" />
 =======
       <HelloWorld msg="sun did it!" />
 >>>>>>> sunsun
+=======
+      <HelloWorld msg="김도훈 리포지토리" />
+>>>>>>> hun
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
