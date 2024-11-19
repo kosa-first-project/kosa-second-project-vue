@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
@@ -32,12 +31,31 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 @media (min-width: 1024px) {
   #app {
       display: grid;
       grid-template-columns: auto;
-      padding: 0 2rem;
+  }
+}
+</style>
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template> -->
+
+<script>
+export default {
+  name: "App",
+};
+</script>
+
+<!-- <style scoped>
+@media (min-width: 1024px) {
+  #app {
+      display: grid;
+      grid-template-columns: auto;
   }
 }
 /* 
