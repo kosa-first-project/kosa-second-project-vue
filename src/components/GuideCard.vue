@@ -135,7 +135,7 @@
   
   // 페이지네이션 함수
   const goToGuide = (guideId) => {
-    window.location.href = `/guides/list/${guideId}`;
+    window.location.href = `/guidedetail/${guideId}`;
   };
   
   const goToPage = (page) => {
