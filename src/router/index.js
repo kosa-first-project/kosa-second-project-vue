@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import GuideCard from '../components/GuideCard.vue'
+import MypageGuide from '../components/MypageGuide.vue'
+import GuideForm from '../components/GuideForm.vue'
+import GuideDetail from '../components/GuideDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,10 +16,29 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
+    },
+    {
+      path: '/guide',
+      name: 'Guide',
+      component: GuideCard,
+    },
+    {
+      path: '/mypageguide',
+      name: 'MypageGuide',
+      component: MypageGuide,
+    },
+    {
+      path: '/guideform/:id?', // 등록 및 수정 모두 처리
+      name: 'GuideForm',
+      component: GuideForm,
+      props: true, // props로 ID 전달
+    },
+    {
+      path: '/guidedetail/:id', // 상세보기 경로 수정
+      name: 'GuideDetail',
+      component: GuideDetail,
+      props: true, // 경로 매개변수를 props로 전달
     },
   ],
 })
