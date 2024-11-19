@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import Home from '@/components/common/Home.vue';
+import Home from '@/components/common/Home.vue';
 import boardList from '@/components/board/BoardList.vue';
 import BoardDetails from '@/components/board/BoardDetails.vue';
 import GuideCard from '../components/GuideCard.vue'
@@ -15,11 +15,11 @@ import CreateScheduleView from "../views/CreateScheduleView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Home',
-    //   component: Home,
-    // },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+    },
     {
       path: '/login', // 로그인 페이지 라우트
       name: 'login',
