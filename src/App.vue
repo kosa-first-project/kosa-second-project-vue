@@ -8,7 +8,7 @@ import Footer from '@/components/common/PageFooter.vue';
 <template>
   <div class="main-container">
     <Navbar /> <!-- 네비게이션 바 -->
-    <router-view /> <!-- 페이지 이동이 표시될 곳 -->
+    <!-- <router-view /> --> <!-- 페이지 이동이 표시될 곳 -->
     <RouterView />
     <Footer /> <!-- 푸터 컴포넌트 -->
   </div>
