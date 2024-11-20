@@ -176,7 +176,9 @@ body {
 
 #containerUnique {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 150px auto 0; /* 상단 여백 추가 */
+  padding-bottom: 40px; /* 푸터와의 간격 추가 */
+  min-height: calc(100vh - 200px); /* 화면 전체 높이에서 헤더와 푸터의 높이를 제외한 최소 높이 */
 }
 
 #headerTitle {
@@ -206,18 +208,6 @@ select {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 카드 최소 크기 300px, 최대 크기 비율 */
   gap: 20px; /* 카드 간격 */
   padding: 20px;
-}
-
-@media (max-width: 1024px) {
-  #cardContainerUnique {
-    grid-template-columns: repeat(2, 1fr); /* 중간 화면에서 2열 */
-  }
-}
-
-@media (max-width: 600px) {
-  #cardContainerUnique {
-    grid-template-columns: 1fr; /* 작은 화면에서 1열 */
-  }
 }
 
 .card {

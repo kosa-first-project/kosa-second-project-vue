@@ -188,8 +188,9 @@ body {
 }
 .guide-container {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 30px;
+  margin: 150px auto 0; /* 상단 여백 추가 */
+  padding-bottom: 40px; /* 푸터와의 간격 추가 */
+  min-height: calc(100vh - 200px); /* 화면 전체 높이에서 헤더와 푸터의 높이를 제외한 최소 높이 */
 }
 .guide-title {
   text-align: center;
