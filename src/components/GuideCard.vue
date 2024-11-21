@@ -175,7 +175,8 @@ body {
 }
 
 #containerUnique {
-  max-width: 1200px;
+  max-width: 3000px;
+  width: 1200px;
   margin: 150px auto 0; /* 상단 여백 추가 */
   padding-bottom: 40px; /* 푸터와의 간격 추가 */
   min-height: calc(100vh - 200px); /* 화면 전체 높이에서 헤더와 푸터의 높이를 제외한 최소 높이 */
@@ -204,10 +205,14 @@ select {
 }
 
 #cardContainerUnique {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 카드 최소 크기 300px, 최대 크기 비율 */
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 3rem;
+  -moz-column-gap: erem;
+  column-gap: erem;
   gap: 20px; /* 카드 간격 */
-  padding: 20px;
+  padding: 50px;
 }
 
 .card {
@@ -217,6 +222,7 @@ select {
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .card:hover {

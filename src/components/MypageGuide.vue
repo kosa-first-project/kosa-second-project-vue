@@ -1,5 +1,5 @@
 <template>
-  <div class="guide-container">
+  <div class="guide-container" style="min-width: 1000px;">
     <h1 class="guide-title">가이드 활동 정보</h1>
 
     <!-- 가이드 추가 버튼 -->
@@ -8,7 +8,7 @@
     </div>
 
     <!-- 검색바 -->
-    <div class="guide-search-bar">
+    <div class="guide-search-bar" style="max-height: 50px;">
       <input
         type="text"
         v-model="searchTerm"
@@ -20,7 +20,7 @@
         <option value="activate">활성화</option>
         <option value="deactivate">비활성화</option>
       </select>
-      <button class="guide-button" @click="fetchGuideData">검색</button>
+      <button class="guide-button" @click="fetchGuideData" style="width: 80px;">검색</button>
     </div>
 
     <!-- 로딩 중 표시 -->
@@ -267,3 +267,4 @@ body {
   font-size: 18px;
 }
 </style>
+
