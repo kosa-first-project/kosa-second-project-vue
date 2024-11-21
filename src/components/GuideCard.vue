@@ -4,7 +4,6 @@
 
     <!-- 검색 바 -->
     <div class="search-bar">
-      <!-- 지역 선택 필터 -->
       <select v-model="selectedCity">
         <option value="all">모든 지역</option>
         <option value="서울">서울</option>
@@ -22,11 +21,7 @@
         <option value="경상도">경상도</option>
         <option value="제주도">제주도</option>
       </select>
-
-      <!-- 텍스트 검색 필터 -->
       <input type="text" v-model="searchTerm" placeholder="제목 및 상세내역 검색" />
-
-      <!-- 검색 버튼 -->
       <button class="pagination-button" @click="performSearch">검색</button>
     </div>
 
@@ -96,6 +91,7 @@ const filteredGuides = computed(() => {
 
 // API 호출 함수
 const fetchGuideData = async () => {
+
   try {
     isLoading.value = true;
     const response = await axios.get("http://localhost:8888/api/guides/GuideMain", {
@@ -104,7 +100,6 @@ const fetchGuideData = async () => {
         size: itemsPerPage.value,
       },
     });
-    console.log("API 응답:", response.data);
     guideData.value = response.data.list || [];
     totalItems.value = response.data.totalElements || 0;
     totalPages.value = response.data.totalPages || 0;
@@ -124,7 +119,6 @@ const performSearch = async () => {
         city: selectedCity.value,
       },
     });
-    console.log("검색 응답:", response.data);
     guideData.value = response.data.list || [];
     totalItems.value = response.data.totalElements || 0;
     totalPages.value = response.data.totalPages || 0;
@@ -174,7 +168,6 @@ fetchGuideData();
 </script>
 
 <style scoped>
-/* 스타일 변경 */
 body {
   font-family: "Arial", sans-serif;
   background-color: #f3f6fa;
@@ -183,8 +176,11 @@ body {
 }
 
 #containerUnique {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 3000px;
+  width: 1200px;
+  margin: 150px auto 0; /* 상단 여백 추가 */
+  padding-bottom: 40px; /* 푸터와의 간격 추가 */
+  min-height: calc(100vh - 200px); /* 화면 전체 높이에서 헤더와 푸터의 높이를 제외한 최소 높이 */
 }
 
 #headerTitle {
@@ -210,20 +206,24 @@ select {
 }
 
 #cardContainerUnique {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 3rem;
+  -moz-column-gap: erem;
+  column-gap: erem;
+  gap: 20px; /* 카드 간격 */
+  padding: 50px;
 }
 
 .card {
-  width: 300px;
   background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .card:hover {

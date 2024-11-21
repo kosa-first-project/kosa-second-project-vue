@@ -6,41 +6,41 @@
                 <h4><strong>Start:</strong> {{ formatDate(event.startDateTime) }}</h4>
                 <h4><strong>End:</strong> {{ formatDate(event.endDateTime) }}</h4>
                 <h4><strong>Comment:</strong> {{ event.comment }}</h4>
+                <button @click="navigateToEdit(event.id)" class="edit-btn">Edit</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script setup>
-    import { ref, onMounted } from "vue";
-    import axios from "axios";
+import { useRouter } from "vue-router";
 
-    const events = ref([]); // Reactive array to store events
+const router = useRouter();
 
-      // Fetch schedules from the backend
-    const fetchSchedules = async () => {
-        try {
-        const response = await axios.get("http://localhost:8889/schedule");
-        events.value = response.data; // Assign response data to events
-        } catch (error) {
-        console.error("Error fetching schedules:", error);
-        }
+// Navigate to edit page using named route
+const navigateToEdit = (id) => {
+    router.push({ name: 'edit', params: { id } });
+};
+
+// Props
+defineProps({
+    events: {
+        type: Array,
+        required: true,
+    },
+});
+
+// Format datetime for display
+const formatDate = (dateTime) => {
+    const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
     };
-    
-    // Format datetime for display
-    const formatDate = (dateTime) => {
-        const options = {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-        };
-        return new Date(dateTime).toLocaleString(undefined, options);
-    };
-
-    // Fetch schedules on component mount
-    onMounted(fetchSchedules);
+    return new Date(dateTime).toLocaleString(undefined, options);
+};
 </script>
 
 <style>
@@ -50,16 +50,27 @@
     margin: 0 auto;
 }
 
-.schedule-list {
-    list-style: none;
-    padding: 0;
-}
-
 .schedule-item {
     margin-bottom: 15px;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
+    position: relative; /* For button positioning if needed */
+}
+
+.edit-btn {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
 }
 </style>

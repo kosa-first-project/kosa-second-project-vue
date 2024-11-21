@@ -85,11 +85,6 @@ let ps = null;
 // Initialize Kakao Map
 const initMap = () => {
     const mapContainer = document.getElementById("map");
-    if (!mapContainer) {
-        console.error("Map container not found.");
-        return;
-    }
-
     const mapOption = { 
         center: new kakao.maps.LatLng(36.98818056, 127.9281444), // Default center coordinates
         level: 12, // Zoom level
@@ -154,7 +149,7 @@ const createSchedule = async () => {
             title: document.getElementById("title").value,
         };
 
-        const response = await axios.post("http://localhost:8889/schedule/create", formData, {
+        const response = await axios.post("http://localhost:8888/schedule/create", formData, {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
         });
         alert("일정이 성공적으로 생성되었습니다.");

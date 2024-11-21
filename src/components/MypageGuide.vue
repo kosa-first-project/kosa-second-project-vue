@@ -1,5 +1,5 @@
 <template>
-  <div class="guide-container">
+  <div class="guide-container" style="min-width: 1000px;">
     <h1 class="guide-title">가이드 활동 정보</h1>
 
     <!-- 가이드 추가 버튼 -->
@@ -8,7 +8,7 @@
     </div>
 
     <!-- 검색바 -->
-    <div class="guide-search-bar">
+    <div class="guide-search-bar" style="max-height: 50px;">
       <input
         type="text"
         v-model="searchTerm"
@@ -20,7 +20,7 @@
         <option value="activate">활성화</option>
         <option value="deactivate">비활성화</option>
       </select>
-      <button class="guide-button" @click="fetchGuideData">검색</button>
+      <button class="guide-button" @click="fetchGuideData" style="width: 80px;">검색</button>
     </div>
 
     <!-- 로딩 중 표시 -->
@@ -188,8 +188,9 @@ body {
 }
 .guide-container {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 30px;
+  margin: 150px auto 0; /* 상단 여백 추가 */
+  padding-bottom: 40px; /* 푸터와의 간격 추가 */
+  min-height: calc(100vh - 200px); /* 화면 전체 높이에서 헤더와 푸터의 높이를 제외한 최소 높이 */
 }
 .guide-title {
   text-align: center;
