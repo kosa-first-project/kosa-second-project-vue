@@ -4,10 +4,13 @@ import GuideCard from '../components/GuideCard.vue'
 import MypageGuide from '../components/MypageGuide.vue'
 import GuideForm from '../components/GuideForm.vue'
 import GuideDetail from '../components/GuideDetail.vue'
-import Login from '../pages/Login.vue';
+import Login from '../views/Login.vue';
 import ScheduleView from "../views/ScheduleView.vue"; 
 import CreateScheduleView from "../views/CreateScheduleView.vue";
-
+import EditScheduleView from "../views/EditScheduleView.vue";
+import BoardList from '@/components/board/BoardList.vue';
+import BoardDetails from '@/components/board/BoardDetails.vue';
+import BoardForm from '../components/board/BoardForm.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,11 +24,6 @@ const router = createRouter({
       path: '/login', // 로그인 페이지 라우트
       name: 'login',
       component: Login, // Login 컴포넌트 사용
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/guide',
@@ -58,6 +56,33 @@ const router = createRouter({
       path: "/create",
       name: "create",
       component: CreateScheduleView, // Renders HeaderSection, CreateScheduleSection, FooterSection
+    },
+    {
+      path:"/schedule/edit/:id",
+      name: "edit",
+      component: EditScheduleView,
+      props: true,
+    },
+    {
+      path: '/board',
+      name: 'BoardList', // 라우트 이름 수정 (첫 글자 대문자)
+      component: BoardList,
+    },
+    {
+      path: '/board/:boardId',
+      name: 'BoardDetails',
+      component: BoardDetails,
+    },
+    {
+      path: '/board/write',
+      name: 'BoardForm', // 라우트 이름 수정
+      component: BoardForm,
+    },
+    {
+      path: '/board/:boardId/edit',
+      name: 'BoardEdit',
+      component: BoardForm,
+      props: { editing: true },
     },
   ],
 })

@@ -26,7 +26,8 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                  <span class="nav-link">가이드</span>
+                  <span class="dropdown-item">
+                    <RouterLink to="/Guide">가이드</RouterLink></span>
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -36,13 +37,14 @@
                     >마이페이지</a
                   >
                   <div class="dropdown-menu">
-                    <span class="dropdown-item"
-                      >가이드 등록하기</span
-                    >
+                    <span class="dropdown-item">
+                      <RouterLink to="/mypageguide">가이드 등록하기</RouterLink></span>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <span class="nav-link">후기</span>
+                  <span class="nav-link">
+                    <RouterLink to="/board">후기</RouterLink>
+                  </span>
                 </li>
               </ul>
               <button
@@ -51,6 +53,7 @@
               >
                 새 여행계획 생성하기
               </button>
+              
               <div
                 id="headerLogin"
                 class="d-flex"
@@ -81,6 +84,7 @@
   // Navigate to /schedule
   const goToSchedule = () => {
     console.log("Navigated to schedule");
+    router.push("/schedule")
   };
 
   const createSchedule = () => {

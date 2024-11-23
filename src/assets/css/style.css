@@ -2254,7 +2254,7 @@ ul {
 
 /* Banner Section Styles */
 .banner_part {
-  background: url('@/assets/img/banner.jpg') no-repeat center center;
+  background: url('@/assets/img/banner_bg.png') no-repeat center center;
   background-size: cover;
   height: 400px; /* Adjust as needed */
   display: flex;
@@ -2296,7 +2296,7 @@ ul {
 /* Banner Styles */
 .banner_part {
   margin-top: 80px; /* Header 높이에 맞춘 여백 */
-  background: url('@/assets/img/banner.jpg') no-repeat center center;
+  background: url('@/assets/img/banner_bg.png') no-repeat center center;
   background-size: cover;
   height: 400px; /* 높이는 필요에 따라 조정 */
   display: flex;
@@ -2339,7 +2339,7 @@ ul {
 /* Banner Styles */
 .banner_part {
   margin-top: 100px; /* Header 높이에 맞춘 여백 */
-  background: url('@/assets/img/banner.jpg') no-repeat center center;
+  background: url('@/assets/img/banner_bg.png') no-repeat center center;
   background-size: cover;
   height: 400px; /* 높이는 필요에 따라 조정 */
   display: flex;

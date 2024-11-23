@@ -1,11 +1,18 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { useRoute, RouterView } from 'vue-router'
+import Navbar from '@/components/HeaderSection.vue';
+import Footer from '@/components/FooterSection.vue';
+
+const route = useRoute();
+
+const noHeaderFooterRoutes = ["GuideDetail", "GuideForm"];
 </script>
 
 <template>
   <div class="main-container" id="app">
+    <Navbar v-if="!noHeaderFooterRoutes.includes(route.name)" />
     <RouterView />
-    <!-- <router-view /> -->
+    <Footer v-if="!noHeaderFooterRoutes.includes(route.name)" />
   </div>
 </template>
 
